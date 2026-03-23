@@ -1,116 +1,96 @@
-Urban-Mobility-Intelligence-Uber-Analysis
-Uber Hotspot Detection & Demand Prediction
+# Urban-Mobility-Intelligence: Uber Analysis
 
-Analyzed Uber pickup data in NYC using Python to uncover temporal and spatial demand patterns, detect high-density zones, and predict ride demand using machine learning.
+**Uber Hotspot Detection & Demand Prediction**  
+Analyzed Uber pickup data using Python to uncover temporal and geographic demand patterns, detect peak hours, and predict high-demand zones using machine learning.
 
-Objectives
-Analyze ride demand over time (hour, weekday, weekend)
-Identify peak periods and high-demand days
-Detect geographic hotspots using clustering
-Build ML models to predict ride demand
-Generate actionable business insights for operational decisions
-Day 1 – Data Loading & Cleaning
+---
 
-Tasks:
+## Objectives
 
-Loaded Uber April 2014 dataset.
-Inspected and cleaned data.
-Converted Date/Time column to datetime.
-Created initial features: hour, day, weekday, month.
-Performed basic exploratory data analysis (EDA).
+- Analyze temporal patterns in Uber demand  
+- Identify peak hours and high-demand days  
+- Detect geographic hotspots using clustering  
+- Build a machine learning model to predict high-demand rides  
+- Generate actionable business insights for decision-making  
 
-Observations:
+---
 
-Dataset contains 564,516 rows with 4 columns: Date/Time, Lat, Lon, Base.
-No missing values; Lat and Lon capture geolocation; Base indicates Uber dispatch base.
-Day 2 – Temporal Analysis & EDA
+## Day 1 – Data Loading & Cleaning
 
-Tasks:
+- Loaded Uber ride data and inspected for missing values  
+- Converted `Date/Time` to datetime format  
+- Extracted time-based features: `hour`, `day`, `weekday`  
+- Created `is_weekend` feature to distinguish weekday vs weekend patterns  
+- Applied KMeans clustering on latitude and longitude to define `zone` feature for geographic hotspots  
+- Performed basic EDA and visualizations to understand data distributions  
 
-Created time-based features: hour, weekday, is_weekend, time_bucket.
-Analyzed ride demand by hour and weekday.
-Built visualizations:
-Rides per hour
-Rides per weekday
-Heatmaps of rides (hour vs weekday)
+---
 
-Insights:
+## Day 2 – Time-Based Analysis
 
-Hour-wise demand:
-Morning peak: 8–10 AM
-Evening peak: 4–7 PM
-Late-night increase: 11 PM–1 AM
-Lowest demand: 0–6 AM
-Weekday patterns:
-Weekdays show strong commute spikes, especially Wednesday.
-Weekends have evenly distributed demand; Saturday evenings are busiest.
-Mondays and Sunday nights have lower activity.
-Time buckets: Night, Morning, Afternoon, Evening – Evening consistently high demand.
-Day 3 – Spatial Analysis & Base Study
+- Created `demand` column to identify **high-demand rides** (4–7 PM)  
+- Analyzed ride demand by hour, weekday, and weekend indicator  
+- Visualized:
+  - Rides per hour  
+  - Rides per weekday  
+  - Hour vs weekday heatmap  
+- **Key Insights**:
+  - Peak demand occurs during **4 PM – 7 PM**  
+  - Weekdays show **sharp commute-based spikes**  
+  - Weekends have **more evenly distributed demand**  
+  - Evening hours consistently show high ride activity  
 
-Tasks:
+---
 
-Applied KMeans clustering on Lat and Lon to create zone feature.
-Plotted Uber pickup density using Folium maps.
-Analyzed demand by Uber Base.
+## Day 3 – Geographic Analysis & Heatmaps
 
-Insights:
+- Generated geographic heatmaps for ride density using latitude & longitude  
+- Created cluster-based `zone` feature to identify high-demand hotspots  
+- Visualized high-demand rides on NYC map using Folium heatmaps (sample 5,000 rides for performance)  
+- Derived business insights for **driver allocation in high-density zones**  
 
-Zones capture geographical demand hotspots (commercial areas, transit hubs, nightlife districts).
-Base B02682 and B02512 are most active, useful for driver allocation.
-Heatmaps show concentrated high-demand regions, especially during commute hours.
-Day 4 – Feature Engineering & Target Creation
+---
 
-Tasks:
+## Day 4 – Feature Engineering & ML Preparation
 
-Added features for ML: hour, weekday, is_weekend, zone.
-Created target variable demand to indicate high-demand periods (4–7 PM).
-Split data into train/test sets for modeling.
+- Selected features: `hour`, `weekday`, `is_weekend`, `zone`  
+- Split data into **train and test sets**  
+- Ensured target variable (`demand`) is correctly defined for classification  
+- Confirmed data readiness for machine learning  
 
-Observations:
+---
 
-Peak hours correctly labeled for evening commute, but analysis shows other peaks exist (morning, late-night).
-Features now capture temporal (hour, weekday, weekend) and spatial (zone) patterns.
-Day 5 – Model Training & Evaluation
+## Day 5 – Model Training & Evaluation
 
-Tasks:
+- Trained **Random Forest Classifier** to predict high-demand rides  
+- Evaluated model performance using classification report and confusion matrix  
+- Observed **feature importance**:
+  - Hour, zone, and weekday are top predictors  
+- Compared predicted vs actual high-demand periods  
 
-Trained models:
-Linear Regression (baseline)
-Random Forest Regressor/Classifier
+**Key Insights**:
 
-Results:
+- Random Forest captures **non-linear demand patterns** that simple models cannot  
+- Model can predict **peak periods (4–7 PM) and high-demand zones**  
+- Enables **operational planning** like surge pricing and driver allocation  
 
-Linear Regression performed poorly due to limited hourly data points.
-Random Forest significantly outperformed Linear Regression, capturing non-linear patterns.
-Feature importance analysis: hour, zone, and weekday are key predictors; is_weekend contributes moderately.
+---
 
-Insights:
+## Day 6 – Business Insights & Visualization
 
-Random Forest accurately predicts high-demand periods.
-Model captures temporal and spatial variations effectively.
-Visualizations show strong alignment between actual vs predicted ride counts.
-Day 6 – Business Insights & Applications
+- Visualized predicted high-demand zones on NYC map  
+- Highlighted top zones during peak hours for targeted interventions  
+- Generated actionable business insights:
+  - Increase drivers during **4–7 PM**  
+  - Adjust pricing strategies in **high-demand zones**  
+  - Monitor hotspots for dynamic resource allocation  
+- Summarized project findings and applicability for urban mobility optimization  
 
-Applications:
+---
 
-Driver allocation: Increase availability during morning and evening peaks.
-Dynamic pricing: Adjust fares for high-demand periods and zones.
-High-demand zone identification: Deploy resources in clusters with more pickups.
-Weekend planning: Even distribution of drivers due to flatter demand.
-Late-night monitoring: Improve service availability in niche areas.
+## Optional Enhancements / Recruiter Highlights
 
-Optional Enhancements / Recruiter Highlights
-
-Interactive Folium maps for hotspots visualization
-Feature importance chart for top predictors (hour, zone, weekday)
-Single-ride prediction function (predict_demand) for business simulations
-Clear ML workflow from EDA → Feature Engineering → Modeling → Insights
-Final Summary
-
-This project demonstrates the practical application of feature engineering, spatial-temporal analysis, and advanced machine learning to predict Uber demand in NYC.
-
-Random Forest models successfully captured complex non-linear patterns.
-High-demand periods can be predicted across morning, evening, and late-night hours.
-Zones derived from clustering highlight geographic hotspots.
-Provides actionable insights for driver allocation, surge pricing, and operational optimization.
+- Interactive Folium maps to visualize predicted demand hotspots  
+- Feature importance chart for top predictors (hour, zone, weekday)  
+- Single-ride prediction function (`predict_demand`) for business simulations  
+- Clear ML workflow from **EDA → Feature Engineering → Modeling → Prediction → Business Insights**  
