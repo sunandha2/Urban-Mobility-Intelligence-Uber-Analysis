@@ -1,4 +1,4 @@
-# 🚕 Urban Mobility Intelligence: Uber Hotspot & Demand Analysis
+# Urban Mobility Intelligence: Uber Hotspot & Demand Analysis
 
 > *8 days. One dataset. From a basic countplot to a production-grade demand forecaster.*
 
@@ -141,4 +141,3 @@ The notebooks are self-contained. The dataset CSV needs to be in the same direct
 Built as a learning project — the goal was to actually understand what goes wrong with naive ML approaches on time-series data, not just get a high accuracy number. The basic version (days 1–2) is intentionally kept to show the before/after.
 
 *Author: K Sunandha*
-
