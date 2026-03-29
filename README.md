@@ -123,6 +123,7 @@ uber_model_analysis.png       → LightGBM deep-dive plots
 ---
 
 ## How to Run
+ *Dataset: Download from [Kaggle](https://www.kaggle.com/datasets/fivethirtyeight/uber-pickups-in-new-york-city) and place `uber-raw-data-apr14.csv` in the project root.*
 
 ```bash
 # Install dependencies
