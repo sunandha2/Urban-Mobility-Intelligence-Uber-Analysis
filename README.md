@@ -129,7 +129,7 @@ uber_model_analysis.png       → LightGBM deep-dive plots
 pip install pandas numpy matplotlib seaborn scikit-learn xgboost lightgbm
 
 # Open the production notebook
-jupyter notebook notebook_v2.ipynb
+jupyter notebook Uber_Pickup_Analysis-advanced.ipynb
 ```
 
 The notebooks are self-contained. The dataset CSV needs to be in the same directory.
