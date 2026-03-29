@@ -92,8 +92,8 @@ TimeSeriesSplit         → leak-free cross-validation
 
 ```
 uber-raw-data-apr14.csv       → raw input data
-notebook_v1.ipynb             → basic version (days 1–2)
-notebook_v2.ipynb             → production version (days 3–8)
+Uber_Pickup_Analysis-basics.ipynb   → basic version (days 1–2)
+Uber_Pickup_Analysis-advanced.ipynb  → production version (days 3–8)
 uber_eda.png                  → demand analysis charts
 uber_geo.png                  → geographic zone map
 uber_correlation.png          → feature correlation matrix
