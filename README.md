@@ -2,7 +2,10 @@
 
 > *8 days. One dataset. From a basic countplot to a production-grade demand forecaster.*
 
----
+<img width="2682" height="1533" alt="uber_eda" src="https://github.com/user-attachments/assets/830ba3dc-820b-4ef2-8f83-0db47a7eaa7a" />
+<img width="2381" height="1030" alt="uber_geo" src="https://github.com/user-attachments/assets/a21da48e-dee3-4724-a1fd-8be2453db54c" />
+<img width="2385" height="1473" alt="uber_model_analysis" src="https://github.com/user-attachments/assets/a9930a3a-1697-4b47-a60f-b4932a4295cd" />
+
 
 ## What This Is
 
